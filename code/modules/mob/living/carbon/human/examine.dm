@@ -120,7 +120,7 @@
 
 	if(leprosy == 1)
 		. += span_necrosis("A LEPER...")
-	
+
 	if (HAS_TRAIT(src, TRAIT_BEAUTIFUL))
 		switch (pronouns)
 			if (HE_HIM)
@@ -505,6 +505,8 @@
 
 	if(!obscure_name && (flavortext || headshot_link || ooc_notes))
 		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a>"
+	if(nudeshot_link && get_location_accessible(src, BODY_ZONE_CHEST) && get_location_accessible(src, BODY_ZONE_PRECISE_GROIN))
+		. += "<a href='?src=[REF(src)];task=view_nudeshot;'>Examine intimately</a>"
 
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
 	for(var/line in lines)

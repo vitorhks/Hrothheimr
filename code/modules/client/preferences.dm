@@ -152,6 +152,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/update_mutant_colors = TRUE
 
 	var/headshot_link
+	var/nudeshot_link
 	var/list/descriptor_entries = list()
 	var/list/custom_descriptors = list()
 
@@ -209,6 +210,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 		to_chat(user, "<font color='red'>Classes reset.</font>")
 	random_character(gender)
 	accessory = "Nothing"
+
+	headshot_link = null
+	nudeshot_link = null
 
 	customizer_entries = list()
 	validate_customizer_entries()
@@ -425,6 +429,13 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<br><b>Loadout Item:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>[loadout ? loadout.name : "None"]</a>"
 			dat += "</td>"
 
+
+			dat += "</tr></table>"
+
+				dat += "<br><b>Nudeshot(3:4):</b> <a href='?_src_=prefs;preference=nudeshot;task=input'>Change</a>"
+			if(nudeshot_link != null)
+				dat += "<a href='?_src_=prefs;preference=view_nudeshot;task=input'>View</a>"
+			dat += "</td>"
 
 			dat += "</tr></table>"
 //			-----------END OF BODY TABLE-----------
@@ -1606,6 +1617,26 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					headshot_link = new_headshot_link
 					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
+
+				if("nudeshot")
+					to_chat(user, "<span class='notice'>["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
+					to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
+					to_chat(user, "<span class='notice'>Resolution: 360x480 pixels.</span>")
+					var/new_nudeshot_link = input(user, "Input the nudeshot link (https, hosts: gyazo, discord, lensdump, imgbox, catbox):", "Nudeshot", nudeshot_link) as text|null
+					if(new_nudeshot_link == null)
+						return
+					if(new_nudeshot_link == "")
+						nudeshot_link = null
+						ShowChoices(user)
+						return
+					if(!valid_headshot_link(user, new_nudeshot_link))
+						nudeshot_link = null
+						ShowChoices(user)
+						return
+					nudeshot_link = new_nudeshot_link
+					to_chat(user, "<span class='notice'>Successfully updated nudeshot picture</span>")
+					log_game("[user] has set their Nudeshot image to '[nudeshot_link]'.")
+
 				if("flavortext")
 					to_chat(user, "<span class='notice'>["<span class='bold'>Flavortext should not include nonphysical nonsensory attributes such as backstory or the character's internal thoughts.</span>"]</span>")
 					var/new_flavortext = input(user, "Input your character description:", "Flavortext", flavortext) as message|null
@@ -2216,6 +2247,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.dna.real_name = character.real_name
 
 	character.headshot_link = headshot_link
+	character.nudeshot_link = nudeshot_link
 
 	character.statpack = statpack
 
