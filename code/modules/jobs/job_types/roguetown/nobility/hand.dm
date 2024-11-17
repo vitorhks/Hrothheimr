@@ -1,5 +1,5 @@
 /datum/job/roguetown/hand
-	title = "Hand"
+	title = "Housecarl"
 	flag = HAND
 	department_flag = NOBLEMEN
 	faction = "Station"
@@ -11,7 +11,7 @@
 	outfit = /datum/outfit/job/roguetown/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	display_order = JDO_HAND
-	tutorial = "You owe everything to your liege. Once, you were just a humble friend--now you are one of the most important people within the duchy itself. You have played spymaster and confidant to the Noble-Family for so long that you are a veritable vault of intrigue, something you exploit with potent conviction at every opportunity. Let no man ever forget into whose ear you whisper. You've killed more men with those lips than any blademaster could ever claim to."
+	tutorial = "Your Shield-Brother/Sister has recently been granted the title of Jarl by the High King and sent forth to forge their kingdom. Without hesitation, you pledge your loyalty and embark on this journey at their side. Bound by oath, you become the second most trusted of your clan, using your combat skills to protect your Jarl and aiding in the rule of your newly founded realm.."
 	whitelist_req = TRUE
 	give_bank_account = 44
 	noble_income = 22
@@ -51,7 +51,7 @@
 
 	category_tags = list(CTAG_HAND)
 
-//Classical hand start - same as before, nothing changed. 
+//Classical hand start - same as before, nothing changed.
 /datum/outfit/job/roguetown/hand/handclassic/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 	backr = /obj/item/storage/backpack/rogue/satchel/black
@@ -85,7 +85,7 @@
 
 	category_tags = list(CTAG_HAND)
 
-//Spymaster start. More similar to the rogue adventurer - loses heavy armor and sword skills for more sneaky stuff. 
+//Spymaster start. More similar to the rogue adventurer - loses heavy armor and sword skills for more sneaky stuff.
 /datum/outfit/job/roguetown/hand/spymaster/pre_equip(mob/living/carbon/human/H)
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/dtace = 1, /obj/item/storage/keyring/hand = 1, /obj/item/lockpickring/mundane)
@@ -133,7 +133,7 @@
 
 	category_tags = list(CTAG_HAND)
 
-//Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors. 
+//Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors.
 /datum/outfit/job/roguetown/hand/advisor/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 	backr = /obj/item/storage/backpack/rogue/satchel/black

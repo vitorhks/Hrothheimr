@@ -1,5 +1,5 @@
 /datum/job/roguetown/lady
-	title = "Consort"
+	title = "Frue"
 	flag = LADY
 	department_flag = NOBLEMEN
 	faction = "Station"
@@ -8,7 +8,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
-	tutorial = "Picked out of your political value rather than likely any form of love, you have become the Grand Duke's most trusted confidant--and likely friend--throughout your marriage. Your loyalty and perhaps even your love will be tested this day...for the daggers that threaten your beloved are as equally pointed at your own throat."
+	tutorial = "Renowned as an honorable Battle-Maiden, you were promised the protection of your beloved clan in exchange for your hand in marriage. Whether bound by love or duty, you set sail with your companion, seeking glory in a new land. As the salty wind fills your sails, you hold close the vision of the days ahead—dreams of sitting upon a throne, your family safe and prosperous, your new fief a stronghold of your legacy.."
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
 	outfit = /datum/outfit/job/roguetown/lady
@@ -62,8 +62,11 @@
 		backr = /obj/item/storage/backpack/rogue/satchel
 		id = /obj/item/clothing/ring/silver
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
@@ -72,6 +75,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.change_stat("intelligence", 3)
+		H.change_stat("strength", 2)
 		H.change_stat("endurance", 3)
 		H.change_stat("speed", 2)
 		H.change_stat("perception", 2)

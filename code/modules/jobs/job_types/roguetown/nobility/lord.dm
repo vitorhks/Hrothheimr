@@ -2,8 +2,8 @@ GLOBAL_VAR(lordsurname)
 GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/roguetown/lord
-	title = "Grand Duke"
-	f_title = "Grand Duchess"
+	title = "Jarl"
+	f_title = "Jarl"
 	flag = LORD
 	department_flag = NOBLEMEN
 	faction = "Station"
@@ -23,7 +23,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	visuals_only_outfit = /datum/outfit/job/roguetown/lord/visuals
 
 	display_order = JDO_LORD
-	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, you are the absolute authority of these lands and at the center of every plot within it. Every man, woman and child is envious of your position and would replace you in less than a heartbeat: Show them the error of their ways."
+	tutorial = "As a noble, your hard-earned reputation and trust have caught the attention of the High King himself. You are granted a new fief, Hrothheimr, a promised land full of potential, though it is unforgiving and fraught with danger. Yet, you see the promise of prosperity it holds. Rallying your clan and any willing peasants, you set forth to claim your new realm, determined to tame the wilds and carve out a future in this harsh, untamed land.."
 	whitelist_req = FALSE
 	min_pq = 10
 	max_pq = null
